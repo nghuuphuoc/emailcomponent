@@ -28,10 +28,11 @@ version in webpack := "4.30.0"
 version in startWebpackDevServer:= "3.3.1"
 
 webpackConfigFile in fastOptJS := Some(baseDirectory.value / "webpack" / "webpack-fastopt.config.js")
-webpackConfigFile in fullOptJS := Some(baseDirectory.value / "webpack" / "webpack-fullopt.config.js")
+webpackConfigFile in fullOptJS := Some(baseDirectory.value / "webpack" / "webpack-opt.config.js")
 
 webpackDevServerExtraArgs in fastOptJS := Seq("--inline", "--hot")
 webpackBundlingMode in fastOptJS := BundlingMode.LibraryOnly("EmailKit")
+webpackBundlingMode in fullOptJS := BundlingMode.LibraryAndApplication("EmailKit")
 
 // ScalaJS options
 scalacOptions += "-P:scalajs:sjsDefinedByDefault"
