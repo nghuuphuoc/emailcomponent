@@ -20,8 +20,8 @@ module.exports = {
         path: `${ROOT_DIR}/target/scala-2.12/scalajs-bundler/main`,
         // `[name]` will be replaced with `email-fastopt` automatically
         filename: '[name]-library.js',
-        library: 'ScalaJSBundlerLibrary',
-        libraryTarget: 'var'
+        library: 'EmailKit',
+        libraryTarget: 'umd'
     },
     module: {
         rules: [
@@ -34,10 +34,7 @@ module.exports = {
                 test: /\.svg$/,
                 use: ['url-loader']
             }
-        ],
-        noParse: (content) => {
-            return content.endsWith('-fastopt.js');
-        }
+        ]
     },
     plugins: [
         new CopyWebpackPlugin([
